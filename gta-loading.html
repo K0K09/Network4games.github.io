@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>جاري تجهيز التحميل...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #121212;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .loader {
+      margin-bottom: 20px;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #00f2fe;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .countdown {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader"></div>
+  <h2>جاري تجهيز رابط التحميل...</h2>
+  <div class="countdown">يتم التحويل خلال <span id="timer">10</span> ثواني</div>
+
+  <script>
+   let timeLeft = 10;
+  let timerElement = document.getElementById("timer");
+
+  let countdown = setInterval(() => {
+    timeLeft--;
+    timerElement.textContent = timeLeft;
+    
+    if (timeLeft === 0) {
+      clearInterval(countdown);
+
+      // ✅ إظهار الزر الاحتياطي بعد 10 ثواني
+      document.getElementById("manual-link").style.display = "block";
+
+      // ✅ محاولة التحويل التلقائي
+      window.location.href = "https://archive.org/download/medal-of-honor-allied-assault/MedalOfHonorAlliedAssault.zip";
+    }
+  }, 1000);
+  </script>
+<div style="width: 80%; background-color: #333; border-radius: 20px; overflow: hidden; margin-top: 20px;">
+  <div id="bar" style="width: 0%; height: 20px; background: linear-gradient(to right, #4facfe, #00f2fe); transition: width 1s;"></div>
+</div>
+<p id="manual-link" style="display:none; margin-top: 20px;">
+  لم يتم التحويل؟ <a href="https://archive.org/download/medal-of-honor-allied-assault/MedalOfHonorAlliedAssault.zip" style="color:#4facfe; text-decoration:underline;">اضغط هنا لتحميل اللعبة يدويًا</a>
+</p>
+
+<audio id="ding" src="https://www.soundjay.com/buttons/sounds/beep-07.mp3" preload="auto"></audio>
+
+<p style="margin-top:20px;">⚡ شكراً لاستخدامك موقعنا! نحن نقدّم لك روابط مباشرة، آمنة، وسريعة بدون إعلانات مزعجة.</p>
+<div style="margin-top:30px;">
+  <h3>🕹️ ألعاب مشابهة:</h3>
+  <ul>
+    <li><a href="cod.html" style="color:lightblue;">Call of Duty 1</a></li>
+    <li><a href="gta-vc.html" style="color:lightblue;">GTA Vice City</a></li>
+    <li><a href="fifa07.html" style="color:lightblue;">FIFA 07</a></li>
+  </ul>
+</div>
+
+
+
+
+</body>
+</html>
